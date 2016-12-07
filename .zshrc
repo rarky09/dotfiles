@@ -1,4 +1,5 @@
 source $HOME/.zplug
+source $HOME/.zshmac
 
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
@@ -39,27 +40,3 @@ function gacp() {
     git push
 }
 
-
-goo() {
-    local str opt
-    if [ $# != 0 ]; then
-        for i in $*; do
-            str="$str${str:++}$i"
-        done
-        opt='search?num=100'
-        opt="${opt}&q=${str}"
-    fi
-    open -a Safari http://www.google.co.jp/$opt
-}
-
-qi() {
-    local str opt
-    if [ $# != 0 ]; then
-        for i in $*; do
-            str="$str${str:++}$i"
-        done
-        opt='search?num=100'
-        opt="${opt}&q=${str}"
-    fi
-    open -a Safari http://qiita.com/$opt
-}
