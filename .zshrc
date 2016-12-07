@@ -10,7 +10,7 @@ autoload -Uz promptinit
   promptinit
   prompt pure
 zstyle ':completion:*' list-colors di=34 ln=35 ex=31
- 
+
 # peco
 function peco-history-selection() {
     BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
@@ -28,10 +28,11 @@ alias la='ls -al'
 alias re='exec $SHELL -l'
 alias r=rails
 alias g=git
+alias ga='git add .'
 
 function chpwd() { ls -G -F}
 
-function ga() {
+function gacp() {
     git add .
     git commit -m "$1"
     git push
