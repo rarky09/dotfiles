@@ -1,0 +1,26 @@
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+zplug "chrissicool/zsh-256color", use:"zsh-256color.plugin.zsh"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-completions"
+zplug "rupa/z", use:z.sh
+zplug "peco/peco", as:command, from:gh-r
+
+zplug "modules/prompt", from:prezto
+zplug "modules/directory", from:prezto
+zplug "modules/completion", from:prezto
+zplug "modules/git", from:prezto
+zplug "modules/history", from:prezto
+zplug "modules/utility", from:prezto
+zplug "modules/osx", from:prezto
+
+if ! zplug check --verbose; then
+  printf 'Install? [y/N]: '
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+
+zplug load --verbose
+
