@@ -1,4 +1,4 @@
-export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME=$HOME/.zplug.d
 source $ZPLUG_HOME/init.zsh
 
 zplug "chrissicool/zsh-256color", use:"zsh-256color.plugin.zsh"

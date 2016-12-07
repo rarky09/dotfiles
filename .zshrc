@@ -30,6 +30,7 @@ alias r=rails
 alias g=git
 alias ga='git add .'
 
+
 function chpwd() { ls -G -F}
 
 function gacp() {
