@@ -1,6 +1,12 @@
 source $HOME/.zplug
 source $HOME/.zshmac
 
+#  language
+export LANGUAGE="en_US.UTF-8"
+export LANG="${LANGUAGE}"
+export LC_ALL="${LANGUAGE}"
+export LC_CTYPE="${LANGUAGE}"
+
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
