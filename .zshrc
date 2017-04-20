@@ -7,6 +7,9 @@ export LANG="${LANGUAGE}"
 export LC_ALL="${LANGUAGE}"
 export LC_CTYPE="${LANGUAGE}"
 
+# env
+export XDG_CONFIG_HOME=$HOME/.config
+
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
@@ -28,15 +31,37 @@ function peco-history-selection() {
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 
+function peco-z-search
+{
+  which peco z > /dev/null
+  if [ $? -ne 0 ]; then
+    echo "Please install peco and z"
+    return 1
+  fi
+  local res=$(z | sort -rn | cut -c 12- | peco)
+  if [ -n "$res" ]; then
+    BUFFER+="cd $res"
+    zle accept-line
+  else
+    return 1
+  fi
+}
+zle -N peco-z-search
+bindkey '^f' peco-z-search
+
 
 # alias
 alias rma='rm -rf'
 alias la='ls -al'
 alias re='exec $SHELL -l'
-alias r=rails
+alias ra=rails
 alias g=git
 alias ga='git add .'
-
+alias be='bundle exec'
+alias r='rmtrash'
+alias s='subl'
+alias sl='z ~/code/shilfy'
+alias c='z Code'
 
 function chpwd() { ls -G -F}
 
