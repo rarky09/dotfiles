@@ -59,9 +59,12 @@ alias g=git
 alias ga='git add .'
 alias be='bundle exec'
 alias r='rmtrash'
-alias s='subl'
-alias sl='z ~/code/shilfy'
+alias ss='subl .'
+alias s=subl
 alias c='z Code'
+alias bi='bundle install'
+alias rdm='rails db:migrate'
+alias jn='jupyter notebook'
 
 function chpwd() { ls -G -F}
 
